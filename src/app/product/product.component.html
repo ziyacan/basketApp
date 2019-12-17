@@ -1,0 +1,17 @@
+<div>
+    <ul>
+        <li *ngFor="let product of products">
+            {{product.productName}}
+        </li>
+    </ul>
+</div>
+
+<!-- Component’a çektiğimiz servisi view katmanına aktarmamız gerekiyor. Burada servisten gelen bütün data’ları 
+tek tek yazmak yerine angular ngFor özelliğinden yararlanıyoruz. ngFor bir Angular direktifidir. 
+Aslında bilinen forEach mantığında çalışan bir koddur. Bir dizin (array) veya koleksiyon(collection)
+ içinde bulunan tüm elemanların içinde dönebilmek için kullanılır. Kısacası kendini tekrar eden bir yapıyı tekrar 
+ tekrar yazmaktansa bir kere yazıp döngüye sokarak kendisinin yazmasını sağlarsınız. “let (*) of products” ‘da bulunan 
+ “products” bizim component’imizden gelen “products”tır. Kısacası burada “component’den gelen tüm products’ları 
+ gez ve her bir objeye product adını ver” demiş olduk. Let ise sadece bu scope’da tanımlandığı ve dışarıdan gelecek
+  diğer product’lardan etkilenmemesi için yazıldı. Artık {{product.productName}} diyerek data’mızda bulunan
+productNmalere ulaşabiliriz. -->
