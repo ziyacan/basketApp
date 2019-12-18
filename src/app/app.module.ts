@@ -1,3 +1,4 @@
+import { ProductService } from './product/product.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { ProductComponent } from './product/product.component';
 
   ],
   providers: [
+    ProductService,
     {
       provide: 'apiUrl',
       useValue: 'http://newnorthwindapi.azurewebsites.net/api'

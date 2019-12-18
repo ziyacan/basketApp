@@ -1,10 +1,10 @@
-<div>
-    <ul>
-        <li *ngFor="let product of products">
+<div class="col mt-3">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of products">
             {{product.productName}}
         </li>
-    </ul>
-</div>
+      </ul>
+  </div>
 
 <!-- Component’a çektiğimiz servisi view katmanına aktarmamız gerekiyor. Burada servisten gelen bütün data’ları 
 tek tek yazmak yerine angular ngFor özelliğinden yararlanıyoruz. ngFor bir Angular direktifidir. 
