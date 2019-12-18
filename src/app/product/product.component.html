@@ -1,11 +1,22 @@
-<div class="col mt-3">
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let product of products">
-            {{product.productName}}
-        </li>
-      </ul>
+<div class="col">
+    <h4 class="page-header">Ürünler</h4>
   </div>
-
+  <div *ngIf="addedProduct" class="alert alert-success"> <!--Bilinenin aksine ngIf’in Angular’da farklı bir görevi vardır. Belirtilen öğeye verilen şart sağlanmazsa öğeyi gizlemek yerine DOM yapısından tamamen kaldırır. Bu sayede o koşul sağlanana kadar DOM’a yüklenmez.-->
+    {{addedProduct}} added to cart!
+  </div>
+  <div class="col mt-3">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let product of products"> <!--let in ve let for diye iki kullanım vardır. Let in size array içindeki elemanların index’ini , let for ise array içinde bulunan elemanların kendisini verir.-->
+       <button (click)="addToCard(product)" type="button" class="btn btn-sm btn-primary float-right">
+          Sepete ekle 
+          <i class="far fa-shopping-cart"></i>
+        </button>
+        <h5><b>{{product.productName}}</b></h5>
+        <p>{{product.quantityPerUnit}}</p>
+        <h6>{{product.unitPrice}}</h6>
+      </li>
+    </ul>
+  </div>
 <!-- Component’a çektiğimiz servisi view katmanına aktarmamız gerekiyor. Burada servisten gelen bütün data’ları 
 tek tek yazmak yerine angular ngFor özelliğinden yararlanıyoruz. ngFor bir Angular direktifidir. 
 Aslında bilinen forEach mantığında çalışan bir koddur. Bir dizin (array) veya koleksiyon(collection)

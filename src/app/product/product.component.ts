@@ -17,7 +17,7 @@ import { Product } from './product';
 export class ProductComponent implements OnInit {
 
   products: Product[]; // Bizim servisten gelen değerlere ulaşmamız için oluşturduğumuz product array nesnesini product adında bir değişkene atadık.
-
+  addedProduct: string;
   constructor(private productService: ProductService) { } // Çektiğimiz servisi component’in içerisinde kullanmak için onu constructor bloğuna enjekte etmemiz gerekiyor. Angular kendi içerisinde dependency injection(bağımlılık enjeksiyonu) mekanizmasına sahip. Dolayısıyla http’de yaptığımız gibi productService değişkenine ProductService’i atadık. Bu sayede artık “this.productService” diyerek servisimizde bulunan “getProducts” ‘a erişebilliriz
 
   ngOnInit() {
@@ -28,6 +28,10 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct().subscribe(response => {
       this.products = response;
     });
+  }
+
+  addToCard(product: Product){  // “product: Product” yazmamızın sebebi; butona tıkladığımız zaman bize parametre olarak product gelecek. Yani “parametre product olacak ve alacağım parametre tipini de product olarak bekliyorum” demek istedik.
+    this.addedProduct = product.productName;
   }
 
 }
